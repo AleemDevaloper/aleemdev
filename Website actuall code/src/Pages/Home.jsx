@@ -34,7 +34,6 @@ import sk14 from "../assets/images/skills/sk(14).png";
 import sk15 from "../assets/images/skills/sk(15).png";
 import sk16 from "../assets/images/skills/sk(16).jpeg";
 
-const ProjectScene = lazy(() => import("./Model/ProjectScene"));
 const Scene = lazy(() => import("./Model/Secne"));
 const Scene2 = lazy(() => import("./Model/Scene2"));
 const Scene3 = lazy(() => import("./Model/Secne3"));
@@ -238,18 +237,21 @@ const featured = [
     title: "Optima",
     meta: "Business website",
     href: "https://aleemdevaloper.github.io/optima.github.com/optima/",
+    image: inquiryOptima,
   },
   {
     number: "02",
     title: "The Dig Site",
     meta: "Editorial website",
     href: "https://aleemdevaloper.github.io/dig.github.com/",
+    image: inquiryDigSite,
   },
   {
     number: "03",
     title: "Auto Drone",
     meta: "Product showcase",
     href: "https://aleemdevaloper.github.io/Drone/",
+    image: inquiryDrone,
   },
 ];
 
@@ -285,7 +287,6 @@ function Home() {
   const [socialPaused, setSocialPaused] = useState(false);
   const [copied, setCopied] = useState(false);
   const [selectedService, setSelectedService] = useState("");
-  const [featuredRef, showFeaturedModel] = useNearViewport();
   const [socialRef, showSocialModel] = useNearViewport();
 
   const settings = {
@@ -418,7 +419,7 @@ function Home() {
               <Reveal>
                 <span className="hero__badge">
                   <i aria-hidden="true" />
-                  Independent digital solutions specialist
+                  Digital studio · Lahore, Pakistan
                 </span>
               </Reveal>
 
@@ -433,7 +434,11 @@ function Home() {
                     <path d="M3 5C29 0 57 10 80 34M63 29l18 6-3-19" />
                   </svg>
                   <h1 className="hero__title">
-                    I build digital experiences that <span className="text-gradient">move businesses forward.</span>
+                    I build digital
+                    <br />
+                    experiences that
+                    <br />
+                    <span className="text-gradient">move business forward.</span>
                   </h1>
                 </div>
               </Reveal>
@@ -712,69 +717,61 @@ function Home() {
       </section>
 
       <section className="section featured" id="project">
-        <div className="container">
-          <div className="row align-items-center g-5">
-            <div className="col-lg-6">
+          <div className="container">
+            <div className="featured__intro">
               <Reveal>
-                <span className="eyebrow">Selected work</span>
+                <span className="eyebrow">Selected work · 01—03</span>
                 <h2 className="section-title">
-                  Projects that
+                  Good work speaks
                   <br />
-                  <span>actually ship.</span>
+                  <span>for itself.</span>
                 </h2>
                 <p className="section-lead">
-                  Explore selected websites and product showcases that reflect
-                  my approach to design and development. Project details and
-                  outcomes are shared only where they can be verified.
+                  A closer look at selected websites and product experiences.
+                  Each project links to its live website.
                 </p>
               </Reveal>
-
-              <Reveal delay={100}>
-                <div className="featured__list">
-                  {featured.map((item) => (
-                    <a
-                      key={item.number}
-                      href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="featured__num">{item.number}</span>
-                      <span className="featured__name">{item.title}</span>
-                      <span className="featured__meta">{item.meta}</span>
-                      <span className="featured__arrow" aria-hidden="true">
-                        ↗
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </Reveal>
-
-              <Reveal delay={160}>
-                <Link to="/projects" className="btn-lime">
-                  View all projects <span aria-hidden="true">→</span>
-                </Link>
-              </Reveal>
             </div>
 
-            <div className="col-lg-6">
-              <Reveal delay={140} className="reveal--scale">
-                <div className="featured__visual" ref={featuredRef}>
-                  <div className="featured__aura" aria-hidden="true" />
-                  <div className="featured__grid" aria-hidden="true" />
-                  {showFeaturedModel && (
-                    <Suspense fallback={null}>
-                      <ProjectScene />
-                    </Suspense>
-                  )}
-                  <span className="featured__tag">
-                    <i aria-hidden="true" />
-                    Live 3D showcase
-                  </span>
-                </div>
-              </Reveal>
+            <div className="featured__cards">
+              {featured.map((item, index) => (
+                <Reveal key={item.number} delay={index * 80}>
+                  <a
+                    className="featured-card"
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View ${item.title}, ${item.meta}`}
+                  >
+                    <div className="featured-card__image">
+                      <img
+                        src={item.image}
+                        alt={`${item.title} website preview`}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span className="featured-card__index">{item.number}</span>
+                      <span className="featured-card__visit" aria-hidden="true">↗</span>
+                    </div>
+                    <div className="featured-card__info">
+                      <div>
+                        <h3>{item.title}</h3>
+                        <span>{item.meta}</span>
+                      </div>
+                      <span className="featured-card__arrow" aria-hidden="true">↗</span>
+                    </div>
+                  </a>
+                </Reveal>
+              ))}
+            </div>
+
+            <div className="featured__footer">
+              <span className="featured__note">More projects, details &amp; categories</span>
+              <Link to="/projects" className="btn-ghost">
+                Explore the portfolio <span aria-hidden="true">↗</span>
+              </Link>
             </div>
           </div>
-        </div>
       </section>
 
       <section className="section outcomes-section" id="results">
