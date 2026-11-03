@@ -1,0 +1,10 @@
+.footer{
+    overflow-x: hidden !important;
+    color: #fff;
+    font-size: 20px;
+    span{
+        background: linear-gradient( 50deg, #c1ff12 , #fff);
+        background-clip: text;
+        color: transparent;
+    }
+}

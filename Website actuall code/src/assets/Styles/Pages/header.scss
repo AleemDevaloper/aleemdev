@@ -1,0 +1,74 @@
+
+.navbar-brand{
+    color: #fff;
+    margin-right: 0px !important;
+    svg{
+        path:nth-child(1){
+            fill: #8E8E8E;
+            transition:all .5s ease;
+           } 
+           path:nth-child(2){
+            fill: #A3A4A4;
+            transition:all .5s ease;
+           } 
+           path:nth-child(3){
+            fill: #FEFEFE;
+            transition:all .5s ease;
+           } 
+           path:nth-child(4){
+            fill: #DFE0E0;
+            transition:all .5s ease;
+           } 
+           path:nth-child(5){
+            fill: #A1A2A2;
+            transition:all .5s ease;
+           } 
+           transition:all .5s ease;
+    }
+    svg:hover{
+       path:nth-child(1){
+        fill: #98ca10;
+       } 
+       path:nth-child(2){
+        fill: #7c992b;
+       } 
+       path:nth-child(3){
+        fill: #c1ff12;
+       } 
+       path:nth-child(4){
+        fill: #c1ff12;
+       } 
+       path:nth-child(5){
+        fill: #c1ff12;
+       } 
+       
+    }
+  }
+  .navbar-brand:hover{
+    cursor: pointer;
+  }
+  .menu{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    button{
+        color: #fff;
+        .btn{
+          color: #fff;
+          text-decoration: none;
+          border: 0px;
+          
+        }
+    }
+    span{
+        background: #c1ff12;
+        height: 2px;
+        width: 40px;
+        transition: all .5s ease;
+    }
+  }
+  .menu:hover{
+    span{
+        width: 20px;
+    }
+  }

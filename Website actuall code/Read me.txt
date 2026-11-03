@@ -1,0 +1,4 @@
+npm i 
+npm run dev
+
+make sure to install allpackages before run this code

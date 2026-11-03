@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./logo2.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Aleem Developer</title>
+     <script type="module" crossorigin src="./assets/index-CxSkV6as.js"></script>
+     <link rel="stylesheet" crossorigin href="./assets/index-B3nohg61.css">
+   </head>
+  <body>
+    <style>
+      html{
+        cursor: none;
+      }
+            .arrow {
+    border: 2px solid #c1ff12;
+    border-radius: 50%;
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    transform: matrix(1, 0, 0, 1, 697, 106),translate(-50%, -50%); 
+      z-index: 5;
+      left: 0;
+      top: 0;
+      transition: transform .1s, width .3s, height .3s;
+      pointer-events: none;
+  }
+  .dot{
+    position: fixed;
+    height: 5px;
+    width: 5px;
+    top: 0;
+    left: 0;
+    background: #c1ff12;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 5;
+    transform: matrix(1, 0, 0, 1, 697, 106),translate(-50%, -50%); 
+    transition: transform .07s, width .3s, height .3s, ; }
+    @media (max-width: 768px) {
+      .arrow{
+        display: none;
+      }
+      .dot{
+        display: none;
+      }
+    }
+    </style>
+    <div class="dot"></div>
+    <div class="arrow"></div>
+
+
+    <div id="root"></div>
+    <script>
+         
+      const cursor = document.querySelector('.arrow');
+      const dot = document.querySelector('.dot');
+ window.addEventListener('mousemove', (event) => {
+  dot.style.transform = `translate(${event.clientX - 0}px, ${event.clientY - 0}px)`;
+  cursor.style.transform = `translate(${event.clientX - 15}px, ${event.clientY - 15}px)`;
+   });
+   window.addEventListener("scroll" , function () {
+    var nav = document.querySelector("nav");
+    nav.classList.toggle("sticky" , window.scrollY > 0);
+})
+    </script>
+      
+    
+
+   </body>
+</html>

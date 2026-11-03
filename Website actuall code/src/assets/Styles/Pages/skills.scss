@@ -1,0 +1,205 @@
+.skills {
+  position: relative;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(800px 500px at 50% 0%, rgba(193, 255, 18, 0.045), transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent);
+  overflow: hidden;
+}
+
+.skills__carousel {
+  position: relative;
+  margin: 0 -10px;
+  padding: 6px 0 0;
+}
+
+.skills__carousel::before,
+.skills__carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 40px;
+  z-index: 2;
+  width: 80px;
+  pointer-events: none;
+}
+
+.skills__carousel::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--ink), transparent);
+}
+
+.skills__carousel::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--ink), transparent);
+}
+
+.skills__slide {
+  padding: 8px;
+}
+
+.skills__card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 118px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.05), transparent 65%),
+    rgba(255, 255, 255, 0.018);
+  overflow: hidden;
+  transition:
+    border-color 0.35s ease,
+    transform 0.45s var(--ease-out),
+    background 0.35s ease;
+}
+
+.skills__card::after {
+  content: "";
+  position: absolute;
+  inset: auto 18% 10px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(193, 255, 18, 0.65), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.skills__card img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(1.25);
+  opacity: 0.68;
+  transition:
+    filter 0.35s ease,
+    opacity 0.35s ease,
+    transform 0.45s var(--ease-out);
+}
+
+.skills__card:hover {
+  border-color: rgba(193, 255, 18, 0.4);
+  background:
+    radial-gradient(circle at 50% 20%, rgba(193, 255, 18, 0.1), transparent 70%),
+    rgba(255, 255, 255, 0.03);
+  transform: translateY(-5px);
+}
+
+.skills__card:hover::after {
+  opacity: 1;
+}
+
+.skills__card:hover img {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.skills .slick-prev,
+.skills .slick-next {
+  z-index: 4;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: rgba(7, 8, 5, 0.85);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.skills .slick-prev {
+  left: -6px;
+}
+
+.skills .slick-next {
+  right: -6px;
+}
+
+.skills .slick-prev:hover,
+.skills .slick-next:hover {
+  border-color: var(--lime);
+  background: rgba(193, 255, 18, 0.08);
+}
+
+.skills .slick-prev::before,
+.skills .slick-next::before {
+  color: var(--lime);
+  font-size: 15px;
+  opacity: 1;
+}
+
+.skills .slick-dots {
+  bottom: -34px;
+}
+
+.skills .slick-dots li {
+  width: 16px;
+  height: 16px;
+  margin: 0 2px;
+}
+
+.skills .slick-dots li button {
+  width: 16px;
+  height: 16px;
+  padding: 5px;
+}
+
+.skills .slick-dots li button::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muted-2);
+  color: transparent;
+  opacity: 1;
+}
+
+.skills .slick-dots li.slick-active button::before {
+  background: var(--lime);
+  box-shadow: 0 0 10px rgba(193, 255, 18, 0.6);
+}
+
+.skills__chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 820px;
+  margin: 54px auto 0;
+}
+
+.skills__chips .pill {
+  padding: 9px 14px;
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.skills__chips .pill:hover {
+  border-color: rgba(193, 255, 18, 0.4);
+  background: rgba(193, 255, 18, 0.06);
+  color: var(--white);
+}
+
+@media (max-width: 767.98px) {
+  .skills__card {
+    height: 100px;
+  }
+
+  .skills__card img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .skills .slick-prev,
+  .skills .slick-next {
+    display: none !important;
+  }
+
+  .skills__carousel::before,
+  .skills__carousel::after {
+    width: 40px;
+  }
+}
